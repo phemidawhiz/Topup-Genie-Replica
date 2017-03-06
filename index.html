@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+    <title>Topupgenie - Topup anytime and anywhere	</title>
+    <link rel="stylesheet" type="text/css" href="tg_styles.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		
+		<!--Below is a javascript workaround  called html5shiv, needed to enable styling of HTML5 elements in
+				versions of Internet Explorer prior to version 9 -->
+				
+				<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+</script>
+<![endif]-->
+		
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" src="/ng/js/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="/ng/js/styles.js"></script>
+  </head>
+  
+  <body>
+    <noscript><h3>This site requires JavaScript</h3></noscript>
+            
+            <div id="home-container">
+	<section class="home">
+            <div class="index-header">
+                <div class="">
+                    <div class="tug-logo left">
+                        <a href="index.html">
+
+                            <img src="images/tg_logo.svg" alt="Topup Genie logo" width="100px">
+                        </a>
+      
+                        <ul class="country">
+                            <li><img src="images/Nigerian_flag_icon.png" width="20px" height="12px"></li>
+                            <li class="hidden"><img src="./img/countries/Kenyan_flag.png" width="20px" height="12px"></li>
+                            <li class="hidden"><img src="./img/countries/Ghana_flag.png" width="20px" height="12px"></li>
+                        </ul>
+                    </div><!-- tug-logo -->
+                    <div class="sign-up right">
+                        <ul class="sign-up-ul">
+                            <!--<li><a href="">Bank transfer notification</a></li> -->
+                            <li><span style="color:red"></span></li>
+                            <li><a href="#signup">Sign Up</a></li>
+                            <li><a href="#login">Log In</a></li>
+                        </ul>
+                                                <ul>
+                            <li><b>...</b></li>
+                        
+                        </ul>
+                    </div>
+                </div><!-- top-bar-width -->
+            </div><!-- index-header -->
+            <div style="clear: both"></div>
+            <div class="left index-form-container">
+                <h3>Quick Top up</h3>
+                <form action="/ng/topup/vendor" name="topup" class="side" id="index-form" method="post">
+                            <input name="country" value="1" class="hidden" type="text">
+                            <!-- checkout -->
+<section class="modal-dialog" id="checkout">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">
+			<h4>Total amount to pay</h4>
+			<p class="">₦ <span></span></p>
+			<!-- note: the following input and submit elements are included within a form -->
+				<!-- <label for="referral-code">Enter referral or promo code:</label>
+				<input type="text" name="referral-code" placeholder="Referral Code"> -->
+				<label for="payment">Select payment option</label>
+				<select name="payment_type" id="payment">
+					<option value="">Payment Method</option>
+					<option value="TuG">TuG Balance</option>
+					<option value="Mastercard">MasterCard</option>
+					<option value="Visa">VISA</option>
+					<option value="Verve">Verve</option>
+					<!-- This only shows if customer has credit limit. Or should there be a 'transfer to TUG balance' step? This might be helpful as credit and regular balance don't combine. -->
+    					<!-- <option value="Credit">Credit</option>-->
+				</select>
+				<!-- <input type="checkbox" name="accept_t&C" id="" required> -->
+				<p>By clicking PAY, I agree to Topup Genie's <a href=""><span>Terms of Service</span></a> and <a href=""><span>Refund Policy</span></a>.</p>
+				<p>You will be securely directed to {ISW/UPS} through PayLikeMagic.</p>
+			<input name="" value="PAY" onclick="javascript: $(this).prop('disabled', true); $(this).attr('value', 'Please wait...'); $(this.form).submit();" type="submit">
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>                            <div class="add-more">
+    <h4>Use the options below to add many numbers simultaneously</h4>
+    <ul>
+        <a href="#add-manual"><li><span>i.</span> Add numbers manually</li></a><!--&nbsp;&nbsp;&nbsp;<i class="fa">OR</i>&nbsp;&nbsp;&nbsp;
+        <li>
+            <a href="#importcontacts"><p><span>ii.</span> Import from file</p></a>
+        </li>&nbsp;&nbsp;&nbsp;<i class="fa">OR</i>&nbsp;&nbsp;&nbsp;
+        <li>
+            <a href="#add-contact-list" class=""><span>3.</span> Add from contacts</a>
+        </li>-->
+    </ul>
+</div>
+<section class="modal-dialog" id="importcontacts">
+    <div class="modal-2">
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        
+            <div class="file-input">
+                <input name="csv" accept=".csv" type="file">
+                <p><span>ii.</span> Import from file</p>
+            </div>
+            <input class="btn btn-large btn-success fr" id="importcontactsubbtn" value="Import" type="submit">
+        
+    </div>
+</section><fieldset class="">
+                <label for="contact_name" class="hidden name_of_contact">
+                    <input class="topup-form-input" name="contact_name[]" id="contact_name" value="Contact Name" readonly="" type="text">
+                </label>
+                <label for="service">
+                    <select class="topup-form-select service" name="service[]" id="service">
+                        <option value="">Select Service</option>
+                        <optgroup label="Airtime">                        <!--<option value="airtel" id="airtel">Airtel</option>-->
+                        <option value="airtel" id="airtime">Airtel</option>
+                                                <!--<option value="etisalat" id="etisalat">Etisalat</option>-->
+                        <option value="etisalat" id="airtime">Etisalat</option>
+                                                <!--<option value="glo" id="glo">Glo</option>-->
+                        <option value="glo" id="airtime">Glo</option>
+                                                <!--<option value="mtn" id="mtn">Mtn</option>-->
+                        <option value="mtn" id="airtime">Mtn</option>
+                                                <!--<option value="visafone" id="visafone">Visafone</option>-->
+                        <option value="visafone" id="airtime">Visafone</option>
+                        </optgroup><optgroup label="Transfer">                        <!--<option value="tug_balance" id="tug_balance">TUG Balance transfer</option>-->
+                        <option value="tug_balance" id="airtime">TUG Balance transfer</option>
+                        </optgroup>                    </select>
+                </label>
+                <label for="price-plan">
+                    <div class="input-select">
+                        <input class="inp amount" name="amount[]" id="price-plan" placeholder="Amount" type="text">
+                        <select class="sel ">
+                            <optgroup label="airtime" name="airtime" class="hidden">                                <option value="" id="">50 (min)</option>
+                                                            <option value="50" id="50">50</option>
+                                                            <option value="100" id="100">100</option>
+                                                            <option value="200" id="200">200</option>
+                                                            <option value="500" id="500">500</option>
+                                                            <option value="1000" id="1000">1000</option>
+                                                            <option value="2000" id="2000">2000</option>
+                                                            <option value="5000" id="5000">5000</option>
+                                                            <option value="10000" id="10000">10000</option>
+                                                            <option value="20000" id="20000">20000</option>
+                                                            <option value="50000" id="50000">50000</option>
+                            </optgroup><optgroup label="tug_balance" name="tug_balance" class="hidden">                                <option value="transfer" id="transfer">transfer</option>
+                            </optgroup>                        </select>
+                        <img src="/ng/img/caret-down2.png" alt="">                    </div>
+                </label>
+                <label for="device_id">
+                    <div class="input-select">
+                        <input class="inp device_id" name="device_id[]" placeholder="Phone Number" type="text">
+                        <select class="sel ">
+                            <option></option>
+                            <option value="">No contact(s)</option>                        </select>
+                        <img src="/ng/img/caret-down2.png" alt="">                    </div>
+                </label>
+                <label for="">
+                    <input class="topup-form-input" maxlength="130" name="message[]" id="message" placeholder="Optional message" type="text">
+                </label>
+            </fieldset></form>
+<!-- Add numbers manually -->
+<section class="modal-dialog" id="add-manual">
+    <div class="modal-2">
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        <!-- <div class="feedback-icon">
+        </div> -->
+        <div class="main-modal-1">
+            <p>Add multiple devices with the same Service, Amount, or message.</p>
+            <fieldset class="add-more-fieldset">
+                <label for="contact_name" class="hidden name_of_contact">
+                    <input class="topup-form-input" name="contact_name[]" id="contact_name" value="Contact Name" readonly="" type="text">
+                </label>
+                <label for="service">
+                    <select class="topup-form-select service" name="service[]" id="service">
+                        <option value="">Select Service</option>
+                        <optgroup label="Airtime">                        <!--<option value="airtel" id="airtel">Airtel</option>-->
+                        <option value="airtel" id="airtime">Airtel</option>
+                                                <!--<option value="etisalat" id="etisalat">Etisalat</option>-->
+                        <option value="etisalat" id="airtime">Etisalat</option>
+                                                <!--<option value="glo" id="glo">Glo</option>-->
+                        <option value="glo" id="airtime">Glo</option>
+                                                <!--<option value="mtn" id="mtn">Mtn</option>-->
+                        <option value="mtn" id="airtime">Mtn</option>
+                                                <!--<option value="visafone" id="visafone">Visafone</option>-->
+                        <option value="visafone" id="airtime">Visafone</option>
+                        </optgroup><optgroup label="Transfer">                        <!--<option value="tug_balance" id="tug_balance">TUG Balance transfer</option>-->
+                        <option value="tug_balance" id="airtime">TUG Balance transfer</option>
+                        </optgroup>                    </select>
+                </label>
+                <label for="price-plan">
+                    <div class="input-select">
+                        <input class="inp amount" name="amount[]" id="price-plan" placeholder="Amount" type="text">
+                        <select class="sel ">
+                            <optgroup label="airtime" name="airtime" class="hidden">                                <option value="" id="">50 (min)</option>
+                                                            <option value="50" id="50">50</option>
+                                                            <option value="100" id="100">100</option>
+                                                            <option value="200" id="200">200</option>
+                                                            <option value="500" id="500">500</option>
+                                                            <option value="1000" id="1000">1000</option>
+                                                            <option value="2000" id="2000">2000</option>
+                                                            <option value="5000" id="5000">5000</option>
+                                                            <option value="10000" id="10000">10000</option>
+                                                            <option value="20000" id="20000">20000</option>
+                                                            <option value="50000" id="50000">50000</option>
+                            </optgroup><optgroup label="tug_balance" name="tug_balance" class="hidden">                                <option value="transfer" id="transfer">transfer</option>
+                            </optgroup>                        </select>
+                        <img src="/ng/img/caret-down2.png" alt="">                    </div>
+                </label>
+                <label for="device_id">
+                    <div class="input-select">
+                        <input class="inp device_id" name="device_id[]" placeholder="Phone Number" type="text">
+                        <select class="sel ">
+                            <option></option>
+                            <option value="">No contact(s)</option>                        </select>
+                        <img src="/ng/img/caret-down2.png" alt="">                    </div>
+                </label>
+                <label for="">
+                    <input class="topup-form-input" maxlength="130" name="message[]" id="message" placeholder="Optional message" type="text">
+                </label>
+            </fieldset>
+            <p>Enter quantity of new fields to be added:</p>
+            <input id="qty" placeholder="">
+            <button>ADD</button>
+        </div>
+    </div>
+</section><!-- Add contacts manually -->
+<!-- Modal below to go to page where needed in CakePHP -->
+<section class="modal-dialog" id="add-contact-list">
+    <section class="modal">
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        <h4>Add devices from existing contacts</h4>
+        <ul class="">
+            <li id="contact_add" class=""><i class="fa fa-plus-circle"></i> ADD</li>
+        </ul>
+        <form class="primary-table" action="" method="POST"><!-- Remove form -->
+<!-- <p>Contact count and click count</p> -->
+            <ul class="tr">
+                <li><input class="select-all" type="checkbox"></li><li>
+                    Contact</li><li>
+                    Email</li><li>
+                    Service</li><li>
+                    Device ID / Number</li><!-- <li>
+                    </li> -->
+            </ul>
+            <ul class="tr">
+                <li><input class="select-one" type="checkbox"></li><li>
+                    <a href="#edit-contact"><input name="" value="Olusegun Akin-Olugbade" id="" type="text"></a></li><li>
+                    <a href="#edit-contact"><i class="no-email fa fa-envelope"></i></a></li><li>
+                    <a href="#edit-contact">Etisalat</a></li><li>
+                    <a href="#edit-contact">0000 0000 0000</a></li><!-- <li>
+                    <a href=""><i class="fa fa-repeat"></i></a></li> -->
+            </ul>
+            <ul class="tr">
+                <li><input class="select-one" type="checkbox"></li><li>
+                    <a href="#edit-contact"><input name="" value="Olusegun Akin-Olugbade" id="" type="text"></a></li><li>
+                    <a href="#edit-contact"><i class="fa fa-envelope"></i></a></li><li>
+                    <a href="#edit-contact">Etisalat</a></li><li>
+                    <a href="#edit-contact">0000 0000 0000</a></li><!-- <li>
+                    <a href=""><i class="fa fa-repeat"></i></a></li> -->
+            </ul>
+            <ul class="tr">
+                <li><input class="select-one" type="checkbox"></li><li>
+                    <a href="#edit-contact"><input name="" value="Olusegun Akin-Olugbade" id="" type="text"></a></li><li>
+                    <a href="#edit-contact"><i class="fa fa-envelope"></i></a></li><li>
+                    <a href="#edit-contact">Etisalat</a></li><li>
+                    <a href="#edit-contact">0000 0000 0000</a></li><!-- <li>
+                    <a href=""><i class="fa fa-repeat"></i></a></li> -->
+            </ul>
+        </form>
+
+        <ul class="pagination">
+            <p class="p-center">Page 1 of 5</p>
+            <li><a href="#">First</a></li>
+            <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+            <li><a href="#">90</a></li>
+            <li><a href="#">20</a></li>
+            <li><a href="#">30</a></li>
+            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            <li><a href="#">Last</a></li>
+        </ul>
+    </section>
+</section>                            <a href="#checkout"><div class="medbtn send"><p class="p-center">Top up</p></div></a>
+                    
+            </div>
+            <div class="index-ad">
+                <section class="index-advert">
+                    <h1>Log in to top up multiple phones conveniently <span>Ideal for businesses and organisations.</span></h1>
+                </section>			
+            </div>
+	</section><!-- home -->
+    </div>
+    <div id="what-we-do-container">
+        <section class="index-section what-we-do">
+            <h2>Convenience in every way possible</h2>
+            <p class="overview p-center">Imagine you have many phone lines to recharge in a few minutes. Topup Genie makes this possible.
+                It is especially ideal for businesses that allocate airtime to their staff.</p>
+            <ul>
+                <li><img src="images/icons/pom.png" alt="relax icon"><h3>Peace of mind</h3><p>Relax while staff phone lines are automatically recharged.</p>
+                </li><li><img src="images/icons/speed.png" alt="speed icon"><h3>Speed</h3><p>All staff get thier airtime in seconds - like they never ran out.</p>
+                </li><li><img src="images/icons/accountability.png" alt="accountability icon"><h3>Accountability</h3><p>Be confident that the airtime budget is used for just that - airtime.</p>
+                </li><li><img src="images/icons/efficiency.png" alt="efficiency icon"><h3>Efficiency</h3><p>Distribute airtime to all branches from one platform.</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div id="clients-container">
+        <section class="clients">
+            <div class="clients-h2">
+                <h2>Join 7000+ customers that already use Topup Genie</h2>
+            </div>
+            <div class="logo-container">
+                <img class="all-clients large" src="images/clients/clients.png" alt="Cchub logo">
+                <img class="all-clients medium" src="img/companies/clients-6.png" alt="Cchub logo">
+                <img class="all-clients small" src="img/companies/clients-4.png" alt="Cchub logo">
+
+            </div>
+        </section>
+    </div>
+    <div id="cug-container">
+        <section class="index-section cug p-center">
+            <h2>Get your Etisalat CUG lines from us</h2>
+			<p class="overview">Make unlimited* business calls
+			for just ₦1,000 a month with <span>Easy Business CUG</span> lines from<br><img src="images/etisalat_logo.png" width="230px"></p>
+            <button class="hugebtn green-hollow">Find out how</button>
+        </section>
+    </div>
+
+    <div id="resellers-container">
+            <section class="resellers">
+                    <div class="">
+                            <p class="overview">Get rewarded up to ₦90,000 or more every month when you refer businesses and organisations to us.</p>
+                            <button class="hugebtn orange-btn  ">Discover how</button>
+                    </div>
+            </section>
+    </div>
+    <!-- <div id="contact-container">
+        <section class="resellers">
+            <div class="left">
+                <h2>How to earn with Topup Genie</h2>
+                <p class="overview"><a href="">Terms &amp; Conditions apply.</a></p>
+                <button class="hugebtn orange-btn  ">Start Earning</button>
+            </div>
+            <div class="right reseller-options">
+                <ul>
+                    <li><h3>Referrals</h3><p>Introduce an organisation or individual that recharges ₦50,000 or more with us every month and get rewarded for six months.</p></li>
+                    <li><h3>Agents</h3><p>Sell airtime through your phone with Topup Genie with as little as ₦10,000 and earn the best commissions.</p><br></li>
+                    <li><h3>API</h3><p>Sell airtime on your (e-commerce) website with Topup Genie. Download our API to get started.<br><br><br></p></li>
+                    <!-- <li><h3>API</h3><p>Integrate our API to your platform and start selling airtime from your website... <span>More</span></p></li> ->
+                </ul>
+            </div>
+            <div style="clear: both"></div>
+        </section>
+    </div> -->
+<footer>
+    <div id="contact-container">
+    <section class="contact">
+        <form class="contact-form left" action="/ng/home/contact_us" method="POST">
+            <h4>Contact Us</h4>
+            <label>Name *<br>
+                <input class="input" name="contact_name" id="" type="text">
+            </label><br>
+            <label>Email *<br>
+                <input class="input" name="contact_email" id="" type="email">
+            </label><br>
+            <label>Phone number<br>
+                <input class="input" name="contact_number" id="" type="text">
+            </label><br>
+            <label>Subject/Title *<br>
+                <input class="input" name="contact_subject" id="" value="" type="text">
+            </label><br>
+            <label>Message *<br>
+                <textarea rows="6" cols="50" name="contact_message" placeholder="Type your message here"></textarea>
+            </label><br>
+            <input class="medbtn" name="" id="" type="submit">
+        </form>
+        <div class="contact-details">
+            <ul>
+                <li>Email us: <span>support@topupgenie.com</span></li>
+                <li>Speak to us: <span>0700 700 1000</span></li>
+                <li class="hidden">
+                    <ul>
+                        <li class="s-media"><img src="./img/youtube.png"></li>
+                        <li class="s-media"><img src="./img/twitter.png"></li>
+                        <li class="s-media"><img src="./img/facebook.png"></li>
+                        <li class="s-media"><img src="./img/google_plus.png"></li>
+                    </ul>
+                </li>
+                <li>
+                    <form action="/ng/home/contact_us" id="mailing" name="" method="post">
+                        <input class="mailing_list" name="mail_contact" id="mailing_list" placeholder=" Enter your email address" type="text"><input name="jcb" value="Join" class="mailing_submit" type="submit">
+                        <div class="blinking-cursor"></div>
+                        <p>Join our mailing list for news and freebies. We promise not to spam you or share your details with anyone.</p>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+        <div><!-- contact-container -->
+    </div></section>
+    <hr class="separator-2">
+    <div class="apps">
+        <h2>Take us with you.</h2>
+        <ul>
+            <li><a href="#"><img src="./img/android1.png"><br>Android</a></li>
+            <li><a title="Coming soon" class="tooltip"><img src="./img/bb_app.png"><br>BlackBerry</a></li>
+            <li><a href="#"><img src="./img/apple_store_2.png"><br>iOS</a></li>
+            <li><a title="Coming soon, grey out"><img src="./img/windows_store.png"><br>Windows</a></li>
+        </ul>
+    </div><!-- apps -->
+</div>
+<div id="footer-links-container">
+    <div class="footer-links">
+        <ul class="left">
+            <li><a href="">About Us</a></li>
+            <li><a href="">FAQs</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Developer API</a></li>
+        </ul>
+        <ul class="left">
+            <li><a href="">Terms of Service</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Security</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="">Buy Airtel airtime</a></li>
+            <li><a href="">Buy Etisalat airtime</a></li>
+            <li><a href="">Buy Glo airtime</a></li>
+            <li><a href="">Buy Mtn airtime</a></li>
+            <li><a href="">Buy Visafone airtime</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+        <p class="p-center">Copyright © 2016 <a href="#">iThena Logic Ltd</a>. All rights reserved.</p>
+    </div>
+</div></footer>            <!-- site feedback modals -->
+<!-- Links to call pop ups
+<a href="#unsigned-successful">unsigned-successful</a>
+<a href="#unsuccessful-atm">unsuccessful-atm</a>
+<a href="#unsuccessful-balance">unsuccessful-balance</a>
+<a href="#incomplete">incomplete</a>
+<a href="#signed-successful">signed-successful</a>
+<a href="#incorrect_password">incorrect_password</a>
+<a href="#anonymous">anonymous</a>
+<a href="#registered">registered</a>
+<a href="#verify">verified</a>
+<a href="#limit-notification">limit-notification</a>
+<a href="#limit">limit</a>
+<a href="#blacklist">blacklist</a> -->
+
+<!-- unsigned successful -->
+<section class="modal-dialog" id="unsigned-successful">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="feedback-icon">
+			<i class="fa fa-check-circle"></i>
+		</div>
+		<div class="main-modal-1">
+			<p>Thank you for using Topup Genie. Check your email for your receipt.</p>
+			<a href="" class="modal-btn email">Sign Up</a>
+			<a href="" class="modal-btn tw"><i class="fa fa-twitter"></i>Share on Twitter</a>
+			<a href="" class="modal-btn fb"><i class="fa fa-facebook"></i>Share on Facebook</a>
+			<a href="" class="modal-btn g-plus"><i class="fa fa-google-plus"></i>Share on Google</a>
+		</div>
+	</div>
+</section>
+<!-- unsuccessful_atm -->
+<section class="modal-dialog" id="unsuccessful-atm">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="feedback-icon"></div>
+		<div class="main-modal-1">
+			<p>There was an unspecified problem with processing your topup/payment.</p>
+			<a href="" class="modal-btn tw">Please try again...</a>
+			<!--<a href="" class="modal-btn fb">Edit transaction amount</a>-->
+		</div>
+	</div>
+</section>
+<!-- unsuccessful-balance -->
+<section class="modal-dialog" id="unsuccessful-balance">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="main-modal-1">
+			<p>You have insufficient balance in your Topup Genie account for this transaction.</p>
+			<a href="" class="modal-btn email">Edit transaction amount</a>
+			<a href="" class="modal-btn tw">Try another payment option</a>
+		</div>
+	</div>
+</section>
+<!-- incomplete -->
+<section class="modal-dialog" id="incomplete">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="main-modal-1">
+			<p>Your request was incomplete. One or more networks or services in your request
+			 were unresponsive.<br><br>Check your email or history for confirmation.</p>
+			<a href="" class="modal-btn tw"><i class="fa fa-twitter"></i>Share on Twitter</a>
+			<a href="" class="modal-btn fb"><i class="fa fa-facebook"></i>Share on Facebook</a>
+			<a href="" class="modal-btn g-plus"><i class="fa fa-google-plus"></i>Share on Google</a>
+		</div>
+	</div>
+</section>
+<!-- signed_successful -->
+<section class="modal-dialog" id="signed-successful">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="feedback-icon">
+			<i class="fa fa-check-circle"></i>
+		</div>
+		<div class="main-modal-1">
+			<p>Thank you for using Topup Genie.</p>
+			<a href="" class="modal-btn tw"><i class="fa fa-twitter"></i>Share on Twitter</a>
+			<a href="" class="modal-btn fb"><i class="fa fa-facebook"></i>Share on Facebook</a>
+			<a href="" class="modal-btn g-plus"><i class="fa fa-google-plus"></i>Share on Google</a>
+			<a href="" class="modal-btn email">Add new number(s) to contacts</a>
+			<a href="" class="modal-btn email">View history</a>
+		</div>
+	</div>
+</section>
+<!-- incorrect email/password -->
+<section class="modal-dialog" id="incorrect_password">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="main-modal-1">
+			<p>The email and password combination entered do not match.</p>
+			<a href="" class="modal-btn tw">Try again</a>
+			<a href="" class="modal-btn fb">Forgot password?</a>
+			<a href="" class="modal-btn g-plus">Continue as unregistered</a>
+		</div>
+	</div>
+</section>
+<!-- anonymous -->
+<section class="modal-dialog" id="anonymous">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="main-modal-1">
+			<p>You must enter a valid email address for after sales support.</p>
+			<form action="" method="">
+				<input name="" placeholder="Email" required="" type="email">
+				<p>You will be securely directed to {ISW/UPS} through PayLikeMagic.</p>
+				<input class="email" value="Pay" <="" input="" type="submit">
+			</form>
+		</div>
+		<div class="separator-2"></div>
+		<span><p><a href="#registered">I have an account</a></p></span>
+	</div>
+</section>
+<!-- registered -->
+<section class="modal-dialog" id="registered">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="main-modal-1">
+			<p>Enter your Topup Genie email and password.</p>
+			<form action="" method="">
+				<input name="" placeholder="Email" required="" type="email">
+				<input name="password" placeholder="Password" type="password">
+				<p>You will be securely directed to $Payment_processor gateway through PayLikeMagic.</p>
+				<!-- This pop up is use for both balance top ups and card top ups depending on the clicked submit button -->
+				<input class="email" value="Pay {atm}" <="" input="" type="submit">
+				<!-- <input type="submit" value="Pay (tug bal)"> Only one submit btn will be displayed depending on customer option) -->
+			</form>
+		</div>
+		<div class="separator-2"></div>
+		<span><p><a href="#anonymous">I dont have an account</a></p></span>
+	</div>
+</section>
+<!-- verified account required -->
+<section class="modal-dialog" id="verify">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="feedback-icon">
+		</div>
+		<div class="main-modal-1">
+			<p>A verified account is required to make airtime purchases above N1,000.</p>
+			<a href="" class="modal-btn tw">Edit amount</a>
+			<a href="" class="modal-btn fb">Sign Up</a>
+			<a href="" class="modal-btn g-plus">Verify your account</a>
+		</div>
+		<div class="separator-2"></div>
+		<span><p><a href="#anonymous">I have a verified account</a></p></span>
+	</div>
+</section>
+<!-- limit-notification -->
+<section class="modal-dialog" id="limit-notification">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="main-modal-1">
+			<p>Note that you need to sign up to purchase airtime above N1,000.</p>
+			<a href="" class="modal-btn tw">Continue</a>
+			<a href="" class="modal-btn fb">Sign Up</a>
+		</div>
+		<div class="separator-2"></div>
+		<span><p>View our <a href="#signup"> Terms of Service</a></p></span><a href="#signup">
+	</a></div><a href="#signup">
+</a></section><a href="#signup">
+<!-- limit-notification" -->
+</a><section class="modal-dialog" id="limit"><a href="#signup">
+	</a><div class="modal-2"><a href="#signup">
+		</a><a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="feedback-icon">
+			<i class="fa fa-exclamation-triangle"></i>
+			<!-- <p>Limit notification</p> -->
+		</div>
+		<div class="main-modal-1">
+			<p>One or more numbers have reached the limit for unregistered top ups and can only be recharged from a registered account.</p>
+			<a href="" class="modal-btn tw">Sign up</a>
+		</div>
+		<div class="separator-2"></div>
+		<span><p><a href="#anonymous">View our </a><a href="#signup"> Terms of Service</a></p></span>
+	</div>
+</section>
+<!-- blacklist -->
+<section class="modal-dialog" id="blacklist">
+	<div class="modal-2">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="feedback-icon">
+			<div class="blocked">
+			</div>
+		</div>
+		<div class="main-modal-1">
+			<p>This number has been blacklisted and cannot be recharged on Topup Genie.</p>
+		</div>
+	</div>
+</section>
+
+
+<!-- site feedback modals -->
+<!-- Links to call pop ups
+<a href="#signup">signup</a>
+<a href="#email-signup">email-signup</a>
+<a href="#login">login</a>
+<a href="#forgot-password">forgot-password</a>
+<a href="#reset-password">reset-password</a>-->
+
+<!-- signup -->
+<section class="modal-dialog" id="signup">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">
+                    <a href="/ng/auth/facebook" class="modal-btn fb"><i class="fa fa-facebook"></i>Sign up with Facebook</a>
+			<a href="/ng/auth/google" class="modal-btn g-plus"><i class="fa fa-google-plus"></i>Sign up with Google</a>
+			<span><p>or</p></span>
+			<a href="#email-signup" class="modal-btn email"><i class="fa fa-envelope-o"></i>Sign up with Email</a>
+			<p>By signing up, I agree to Topup Genie's <a href=""><span>Terms of Service</span></a> and <a href=""><span>Privacy Policy</span></a>.</p>
+			<div class="separator-2"></div>	
+			<p>Already have an account? <a href="#login"><span>Log in</span></a></p>
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>
+<!-- email signup -->
+<section class="modal-dialog" id="email-signup">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">
+			<span><p>Sign up with <a href="/ng/auth/facebook"><span>Facebook</span></a> or <a href="/ng/auth/google"><span>Google</span></a><br></p></span>
+			<div class="separator-2"></div>
+			<form action="/ng/users/register" method="post">
+				<input name="fullname" placeholder="Full name" type="text">
+				<input name="email" placeholder="Email Address" type="text">
+				<input name="phone" placeholder="Phone number" type="number">
+				<select name="network">
+					<option>Select network</option>
+					<option>Airtel</option>
+					<option>Etisalat</option>
+					<option>Glo</option>
+					<option>Mtn</option>
+					<option>Visafone</option>
+				</select>
+				<input name="password1" placeholder="Password" type="password">
+				<input name="password2" placeholder="Confirm Password" type="password">
+                                <input name="by" placeholder="(Optional) Enter email or phone of reference" value="" type="text">
+				<input class="email" value="Sign up" <="" input="" type="submit">
+			</form>
+			<p>By signing up, I agree to Topup Genie's <a href=""><span>Terms of Service</span></a> and <a href=""><span>Privacy Policy</span></a>.</p>
+			<div class="separator-2"></div>
+			<p>Already have an account? <a href="#login"><span>Log in</span></a></p>
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>
+<!-- login -->
+<section class="modal-dialog" id="login">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">                    <span style="font-size: 12px; color:red"></span>
+			<a href="/ng/auth/facebook" class="modal-btn fb"><i class="fa fa-facebook"></i>Log in with Facebook</a>
+			<a href="/ng/auth/google" class="modal-btn g-plus"><i class="fa fa-google-plus"></i>Log in with Google</a>
+			<span><p>or</p></span>
+			<form action="/ng/users/login" method="post">
+                            <input name="email" placeholder="Email Address" type="text">
+                            <input name="password" placeholder="Password" type="password">
+                            <p class="p-right"><a href="#forgot-password"><span>Forgot password?</span></a></p>
+                            <input class="email" value="Log In" onclick="javascript: $(this).prop('disabled', true); $(this).attr('value', 'Logging in...'); $(this.form).submit();" type="submit">
+                        </form>
+			<div class="separator-2"></div>	
+			<p>Don't have an account? <a href="#signup"><span>Sign up</span></a></p>
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>
+<!-- forgot-password -->
+<section class="modal-dialog" id="forgot-password">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">
+			<p class="password-reset p-center">Enter the email address linked to your Topup Genie account to reset your password.</p>
+			<form action="/ng/home/reset_password" method="POST">
+                            <input name="email" placeholder="Email Address" type="email">
+                            <li><input class="email" value="Reset" type="submit"></li>
+                        </form>
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>
+<!-- reset password link sent -->
+<section class="modal-dialog" id="reset-password">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">
+			<p class="password-reset">A link to reset your password has been sent to the email address entered.</p>
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>
+<!-- Fund balance -->
+<section class="modal-dialog" id="fund-balance">
+	<section class="modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="right main-modal-1">
+			<h4>Fund your balance</h4>
+			<form action="/ng/payments/pay" method="post">
+				<!-- <label for="referral-code">Enter amount to deposit (₦)</label> -->
+				<input name="amount" placeholder="Enter amount to deposit (₦)" type="text">
+				<input name="origin" value="1" type="hidden">
+                                				<!-- <label for="payment">Select payment option</label> -->
+				<select name="payment_type" id="payment">
+					<option value="">Select Payment Method</option>
+					<option value="Mastercard">MasterCard</option>
+					<option value="Visa">VISA</option>
+					<option value="Verve">Verve</option>
+				</select>
+				<!-- <input type="checkbox" name="accept_t&C" id="" required> -->
+				<p>By clicking FUND, I agree to Topup Genie's <a href=""><span>Terms of Service</span></a> and <a href=""><span>Refund Policy</span></a>.</p>
+				<p>You will be securely directed to {ISW/UPS} through PayLikeMagic.</p>
+				<input name="" value="FUND" type="submit">
+			</form>
+		</div>
+		<!-- Notifications and adverts on left of main-modal-1 (pop up) -->
+                <div class="left pop-ad">
+                        <div>
+                                <!-- <h4><i class="fa fa-question"></i>Did you know<i class="fa fa-question"></i></h4> -->
+                                <!-- <img src="images/pop-ad.jpg"> -->
+                                <!-- <p>You can recharge <span>OLL</span> your staff phones in minutes with Topup Genie</p> -->
+                        </div>
+                </div>
+		<div class="clear-both">
+		</div>
+	</section>
+</section>
+<!-- End Fund balance -->
+<!-- Change password -->
+<section class="modal-dialog" id="resellers">
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit">
+			<p>You do not have a reseller account</p>
+                        <form action="/ng/users/reseller/register">
+				<input value="Get started" type="submit">
+			</form>
+		</div>
+	</div>
+</section>
+<!-- Import contact -->
+<section class="modal-dialog" id="import-contact">
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit" align="center">
+			<form action="" method="POST">
+                            <p>Import contact from file</p>
+                            <input name="import_contacts" type="file">
+                            <input value="Save" type="submit">
+			</form>
+		</div>
+	</div>
+</section>
+<!-- Change password -->
+<section class="modal-dialog" id="change-password">
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit">
+			<h4>Change Password</h4>
+			<form action="/ng/users/profile" id="" method="post">
+				<p>Current password</p>
+					<input name="current_password" placeholder="********" type="password">
+				<br>
+				<p>Enter new password</p>
+					<input name="password1" placeholder="********" type="password">
+				<br>
+				<p>Confirm new password</p>
+					<input name="password2" placeholder="********" type="password">
+				<br>
+				<input value="Save" type="submit">
+			</form>
+		</div>
+	</div>
+</section>
+<!-- Add admin -->
+<section class="modal-dialog" id="add-admin">
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit">
+			<h4>Add Sub User</h4>
+			<form action="/ng/users/sub_users" name="" id="" method="post">
+				<p>Sub User's full name:</p>
+					<input name="fullname" id="" type="text">
+				<p>Sub User's email</p>
+					<input name="email" id="" type="email">
+				<br>
+				<p>Set Level</p>
+					<select name="level" id="">
+						<option>Set level</option>
+						<option>1</option>
+						<option>2</option>
+					</select>
+				<br>
+				<input value="Save" type="submit">
+			</form>
+		</div>
+	</div>
+</section>
+<!-- Edit contact -->
+<section class="modal-dialog" id="add-contact">
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit">
+			<h4>Add new Contact</h4>
+                        <form action="/ng/contacts/add" name="topup" id="" method="POST">
+				<p><span>*</span>Device / First Name</p>
+					<input name="firstname" placeholder="firstname" type="text">
+				<br>
+				<p>Last Name</p>
+					<input name="lastname" placeholder="lastname" type="text">
+				<br>
+				<p>Email</p>
+					<input name="email" placeholder="...@..." type="email">
+				<br>
+				<p><span>*</span>Service</p>
+					<select name="network">
+						<option value="">Network / Service</option>
+						<!--<option value="Transfer">Balance transfer</option>-->
+						<option value="Airtel">Airtel</option>
+						<option value="Etisalat">Etisalat</option>
+						<option value="Glo">Glo</option>
+						<option value="MTN">MTN</option>
+						<option value="Visafone">Visafone</option>
+<!--						<option value="DSTV">DSTV</option>
+						<option value="IPNX">IPNX</option>-->
+					</select>
+				<br>
+				<p><span>*</span>Phone No / Device ID</p>
+					<input name="number" placeholder="0100 0900 0000 0000" type="text">
+				<br>
+				<input value="Save" type="submit">
+			</form>
+		</div>
+	</div>
+</section>
+<!-- Delete contact -->
+<section class="modal-dialog" id="delete-contact">e
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit">
+			<h4>You are about to delete the selected contacts</h4>
+			<form action="responses.php" name="topup" id="" method="post">
+				<input value="Delete" type="submit">
+			</form>
+		</div>
+	</div>
+</section>
+<!-- flash edit -->
+<section class="modal-dialog" id="flash-edit">
+	<div class="modal-3">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<!-- <div class="feedback-icon">
+		</div> -->
+		<div class="edit">
+			<h4>Edit flash services for selected contact(s)</h4>
+			<form action="responses.php" name="topup" id="" method="post">
+				<p><span>*</span>Service</p>
+					<select>
+						<option>Airtime</option>
+						<option>Etisalat Data</option>
+						<option>Airtel Data</option>
+						<option>DSTV</option>
+						<option>IPNX</option>
+					</select>
+				<br>
+				<p>Devide ID</p>
+					<!-- disabled if airtime selected above -->
+					<input name="" placeholder="Device ID (non-phones only)" type="text">
+				<br>
+				<p><span>*</span>Amount</p>
+					<input name="" placeholder="Amount" type="text">
+				<br>
+				<p><span>*</span>Limit</p>
+					<input name="" placeholder="Limit" type="text">
+				<br>
+				<p><span>*</span>Renew limit</p>
+					<select>
+						<option>Never</option>
+						<option>Daily</option>
+						<option>Weekly</option>
+						<option>Monthly</option>
+						<option>30 days</option>
+					</select>
+				<br>
+				<input value="Save" type="submit">
+			</form>
+		</div>
+	</div>
+</section> <!-- edit_flash_services -->
+<!-- Referrals -->
+<section class="modal-dialog" id="reward-faqs"><!-- reward FAQs -->
+    <div id="reward-modal">
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        <h2>Rewards FAQs</h2>
+        <div class="reward-faqs">
+            <p class="question">What are referral rewards?</p>
+            <p class="answer">Referral rewards are earned on all purchases made by a referral at a maximum 
+                percentage of 3% of the value of the purchase for a period of three months from 
+                the day of the first purchase by the referral on the Topup Genie platform.</p>
+            <p class="question">What is the qualifying amount to earn a referral reward?</p>
+            <p class="answer">The minimum airtime purchase amount per phone number to be eligible for a reward is 
+                ₦500. (Note that some networks at certain times are not eligible for rewards.</p>
+            <p class="question">In addition to the qualifying amount, are there any other things to note before a reward can be earned on a purchase?</p>
+            <p class="answer">The issuance of rewards on any transaction must not be at a loss to Topup Genie in which case, a reward 
+                will not be issued for the transaction in reference. Topup Genie reserves the right to vary or withhold 
+                the issuance of rewards from time to time as necessary.</p>
+            <p class="question">What is the maximum reward that can be earned?</p>
+            <p class="answer">The maximum reward that can be earned is ₦10 million.</p>
+            <p class="question">Will I always earn a reward on any transaction made by a referral?</p>
+            <p class="answer">A referral must make a purchase on the Topup Genie platform within a period of 30 days from being 
+                registered on the Topup Genie platform for rewards to be issued to the referee.</p>
+            <p class="question">How long does the referral reward promotion last for?</p>
+            <p class="answer">Referrals have to be made by December 31, 2015 to be eligible for this promotion 
+                duration of offer has to be at least 3 months…).</p>
+            <p class="question">Are there special conditions for redeeming rewards as cash?</p>
+            <p class="answer">Yes. Rewards can be redeemed for cash at a 20% discount on the value of the reward.</p>
+            <p class="question">What is the minimum amount that can be redeemed?</p>
+            <p class="answer"> The minimum amount redeemable as cash is ₦1,000. The minimum amount redeemable for airtime is: ₦500.</p>
+            <p class="question">How do I get rewarded as a customer? Why are you only rewarding refrees?</p>
+            <p class="answer">The referees get rewarded for the first three months, the referrals get rewarded for 
+                subsequent three months.</p>
+            <p class="question">Will my rewards expire?</p>
+            <p class="answer">Yes. Your rewards will expire if they are not redeemed by Apri 30 2016. </p>
+            <p class="question">What is my referral code and referral link?</p>
+            <p class="answer">Referrals must use email or phone number… </p>
+            <p class="question">Can I view all qualifying transactions that earn me a reward?</p>
+            <p class="answer">Only the first qualifying transaction of a refree will be visible to you. Subsequent 
+                transactions will not be visible for privacy reasons</p>
+        </div>
+    </div>
+</section><!-- reward FAQs -->
+<section class="modal-dialog" id="redeem-airtime"><!-- redeem as airtime -->
+    <div id="reward-modal">
+        <h2>Transfer reward to TuG Balance?</h2>
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        <div class="redeem-ans">
+            <a href="#">Yes</a>
+            <a href="#">No</a>
+        </div>
+    </div>
+</section><!-- redeem as airtime -->
+<section class="modal-dialog" id="redeem-cash"><!-- redeem as cash -->
+    <div id="reward-modal">
+        <h2>Redeem reward as cash?</h2>
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        <div class="redeem-ans">
+            <a href="#">Yes</a>
+            <a href="#">No</a>
+        </div>
+        <p>Note that account transfers can take up to 3 days to complete</p>
+        <p>There is a 20% deduction from reward for cash redemptions</p>
+        <p>Make sure you update your account details first</p>
+    </div>
+</section><!-- redeem as cash -->
+<section class="modal-dialog" id="reward-link"><!-- reward link -->
+    <div id="reward-modal">
+        <a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+        <a href="#">Yes</a>
+        <a href="#">No</a>
+        <p>Note that account transfers can take up to 3 days to complete</p>
+        <p>There is a 20% deduction from reward for cash redemptions</p>
+        <p>Make sure you update your account details first</p>
+    </div>
+</section><!-- reward link -->
+<section class="modal-dialog" id="refer-modal"><!-- reward link -->
+	<div id="reward-modal">
+		<a href="#" title="Close" class="modal-close"><i class="fa fa-times-circle-o"></i></a>
+		<div class="refer-container">
+			<h3>Three ways to refer</h3>
+			<div>
+				<p class="refer-how">Use your email or phone number</p>
+				<p>Ask your referrals to enter your email address or 
+				phone number when signing up to earn rewards.<br><span>my_email@mail.com
+				<br>08023456789</span>
+				</p>
+			</div>
+			<div>
+				<p class="refer-how">Send them an email or text</p>
+                                <form action="/ng/rewards/refer" method="POST">
+					<label for="">Message
+						<textarea name="message" cols="35" rows="7">Hello, I came across this platform, Topup Genie, that lets you recharge all your phone lines in seconds and thought you might find it useful for your business or personal use. Please purchase your airtime from them because I will get rewarded if you do. Thank you.</textarea>
+					</label>
+					<label for="">Enter email addresses or phone numbers separated by comma
+						<textarea name="fullEmNo" cols="35" rows="5" placeholder="08091112222, email@business.com"></textarea>
+					</label>
+					<input value="Send referral message" type="submit">
+				</form>
+			</div>
+			<!-- <div>
+				<p class="refer-how">Share your referal link</p>
+				<ul id="share-text">
+					<a href=""><img src="../img/share_link.png" alt=""><li> <span>Invite yahoo contacts</span></li></a>
+					<a href=""><img src="../img/tweet_link.png" alt=""><li> <span>Invite facebook friends</span></li></a>
+					<a href=""><img src="../img/copy_link.png" alt=""><li> <span>Invite Gmail contacts</span></li></a>
+				</ul>
+			</div> -->
+		</div>
+	</div>
+</section>            <!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+    window.$zopim || (function(d, s) {
+        var z = $zopim = function(c) {
+            z._.push(c)
+        }, $ = z.s =
+                d.createElement(s), e = d.getElementsByTagName(s)[0];
+        z.set = function(o) {
+            z.set.
+                    _.push(o)
+        };
+        z._ = [];
+        z.set._ = [];
+        $.async = !0;
+        $.setAttribute('charset', 'utf-8');
+        $.src = '//cdn.zopim.com/?1HJ3xMInVCx7xQvatcawbfjJoKqKzOuJ';
+        z.t = +new Date;
+        $.
+                type = 'text/javascript';
+        e.parentNode.insertBefore($, e)
+    })(document, 'script');
+</script>
+<!--End of Zopim Live Chat Script-->    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-73931328-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+<div style="position: absolute; visibility: hidden; margin: 0px; padding: 0px; border: 0px none; height: 0px; width: 0px;" class="widget" __jx__id="___$_1"></div>
+</body>
+</html>
